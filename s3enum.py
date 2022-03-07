@@ -74,7 +74,11 @@ def main(values:dict):
             try:
                 result = future.result()
                 if result[1] in status:
-                    print(status[result[1]].format(url + result[0]))
+                    if result[1] == 404 and values['wildcard'] == True:
+                        print(status[result[1]].format(url + result[0]))
+                    elif result[1] != 404:
+                        print(status[result[1]].format(url + result[0]))
+
             except Exception as exc:
                 if values["debug"] == True:
                     print(exc)
@@ -94,6 +98,7 @@ if __name__ == "__main__":
     parser.add_argument("--wordlist", type=str, help="Wordlist based on most common aws s3 bucket names")
     parser.add_argument("--suffixlist", type=str, help="List of Suffix")
     parser.add_argument("--thread", type=str, help="Number of threads (The default is 10)")
+    parser.add_argument("--wildcard", action=argparse.BooleanOptionalAction)
 
     args = parser.parse_args()
     check = list(filter(lambda x: x[1] != None , args._get_kwargs()))
