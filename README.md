@@ -18,10 +18,10 @@
 $ python3 s3enum.py --help
 ```
 ```
-usage: s3enum.py [-h] [--url URL] [--wordlist WORDLIST] [--suffixlist SUFFIXLIST] [--thread THREAD]
+usage: s3enum.py [-h] [--url URL] [--wordlist WORDLIST] [--suffixlist SUFFIXLIST] [--thread THREAD] [--wildcard | --no-wildcard]
 
-Amazon S3 bucket enumeration 
-github : https://github.com/HSNHK/s3enum 
+Amazon S3 bucket enumeration
+github : https://github.com/HSNHK/s3enum
 by Hassan Mohammadi (HSNHK)
 
 optional arguments:
@@ -31,11 +31,12 @@ optional arguments:
   --suffixlist SUFFIXLIST
                         List of Suffix
   --thread THREAD       Number of threads (The default is 10)
+  --wildcard, --no-wildcard
 ```
 
 ## Example
 ```
-$ python3 s3enum.py --url example.com --wordlist wordlist/BucketNames.txt
+$ python3 s3enum.py --url example.com --wordlist wordlist/BucketNames.txt --wildcard
 ```
 ```
 ==================================================
